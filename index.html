@@ -79,7 +79,7 @@
     <div class="io-areas">
         <div>
             <label for="baseURL">Base API:</label><br>
-            <input id="baseURL" name="Instruction" value="http://localhost:8080"></textarea>
+            <input id="baseURL" name="Instruction" value="http://localhost:11434"></textarea>
         </div>
         <div>
             <label for="instructionText">Instruction:</label><br>
@@ -94,11 +94,9 @@
     <div class="controls">
         <label for="intervalSelect">Interval between 2 requests:</label>
         <select id="intervalSelect" name="Interval between 2 requests">
-            <option value="100">100ms</option>
-            <option value="250">250ms</option>
-            <option value="500" selected>500ms</option>
             <option value="1000">1s</option>
-            <option value="2000">2s</option>
+            <option value="5000" selected>5s</option>
+            <option value="10000">10s</option>
         </select>
         <button id="startButton" class="start">Start</button>
     </div>
@@ -127,6 +125,7 @@
                 },
                 body: JSON.stringify({
                     max_tokens: 100,
+                    model: 'gemma3',
                     messages: [
                         { role: 'user', content: [
                             { type: 'text', text: instruction },
